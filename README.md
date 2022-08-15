@@ -19,7 +19,7 @@ The purpose of this repository is to serve as a reference example for setting up
 This example repository uses **Node.js** to communicate with the GitHub REST API using the [GitHub REST API client for JavaScript](https://github.com/octokit/rest.js) from [Octokit](https://github.com/octokit).
 
 - [watcher.js](./watcher.js): Contains functional logic and module exports which are consumed by other application files to apply configuration settings across Repositories and associated Branches within an Organization.
-- [github-action.js](./github-action.js): (**TODO: Documentation is not yet completed for this component**) **Node.js** app file meant to use for batch processing to scan multiple repositories within an organization to verify baseline configurations are in place.  The format of this file is meant to be used as a Workflow within a GitHub Action with associated Environment variables provided from the Workflow.
+- [github-action.js](./github-action.js): **Node.js** app file meant to use for batch processing to scan multiple repositories within an organization to verify baseline configurations are in place.  The format of this file is meant to be used as a Workflow within a GitHub Action with associated Environment variables provided from the Workflow.
 
 ## Requirements
 
@@ -50,8 +50,8 @@ This example repository can be triggered with a [Workflow Dispatch](https://docs
   - `GHWATCHER_APP_ID`: **required**, Used by [watcher.js](./watcher.js), GitHub App ID for interacting with the GitHub REST API with Octokit.
   - `GHWATCHER_APP_PEM`: **required**, Used by [watcher.js](./watcher.js), GitHub App Private Key content for interacting with the GitHub REST API with Octokit.
   - `GHWATCHER_APP_INSTALLATION_ID`: **required**, Used by [watcher.js](./watcher.js), will be used to generate a short-lived token for interacting with the GitHub REST API with Octokit.
-  - `GHWATCHER_ALLOWED_ORG_LIST`: **required**, Used by [index.js](./index.js) to determine if the `repository.owner.login` sent in the webhook request is matched to a valid listing of Organization names which this application is allowed to target.  Limits interactions from this application to only scan specified target Organizations which are explicitly allowed. Supports a String value either space or comma delimited.
-  - `GHWATCHER_ENABLE_DEPENDABOT`: Used by [index.js](./index.js) to determine if Dependabot scanning should be enabled on repositories when applying branch protection rules, enabling by setting a String value of `true`. Default value is `null`.
+  - `GHWATCHER_ALLOWED_ORG_LIST`: **required**, Used by [github-action.js](github-action.js) to determine if the `repository.owner.login` sent in the webhook request is matched to a valid listing of Organization names which this application is allowed to target.  Limits interactions from this application to only scan specified target Organizations which are explicitly allowed. Supports a String value either space or comma delimited.
+  - `GHWATCHER_ENABLE_DEPENDABOT`: Used by [github-action.js](github-action.js) to determine if Dependabot scanning should be enabled on repositories when applying branch protection rules, enabling by setting a String value of `true`. Default value is `null`.
   - `GHWATCHER_ENFORCE_PRIVATE`: Used by [watcher.js](./watcher.js) to determine if checks/enforcement should happen for **private** repositories, setting to value of `true` to include **private** repositories.  Default value is `false`.
   - `GHWATCHER_REPO_SKIP_LIST`: Used by [watcher.js](./watcher.js) to determine if named repositories should be skipped from checks/enforcement.  Supports a String value either space or comma delimited.
 
