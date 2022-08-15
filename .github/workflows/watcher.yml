@@ -1,0 +1,48 @@
+---
+name: watcher
+
+on:
+  # push:
+  workflow_dispatch:
+  # schedule:
+  #   - cron:  '30 5,17 * * *'
+
+jobs:
+  watcher_exec:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        org:
+          # - collinmcneese-test
+          - mydevsandbox-com
+        include:
+          # - org: collinmcneese-test
+          #   GHWATCHER_APP_ID: GHWATCHER_APP_ID_1
+          #   GHWATCHER_APP_PEM: GHWATCHER_APP_PEM_1
+          #   GHWATCHER_APP_INSTALLATION_ID: GHWATCHER_APP_INSTALLATION_ID_1
+          - org: mydevsandbox-com
+            GHWATCHER_APP_ID: GHWATCHER_APP_ID_2
+            GHWATCHER_APP_PEM: GHWATCHER_APP_PEM_2
+            GHWATCHER_APP_INSTALLATION_ID: GHWATCHER_APP_INSTALLATION_ID_2
+    env:
+      GHWATCHER_APP_ID: ${{ secrets[matrix.GHWATCHER_APP_ID] }}
+      GHWATCHER_APP_PEM: ${{ secrets[matrix.GHWATCHER_APP_PEM] }}
+      GHWATCHER_APP_INSTALLATION_ID: ${{ secrets[matrix.GHWATCHER_APP_INSTALLATION_ID] }}
+      GHWATCHER_CHECK_ORG: ${{ matrix.org }}
+      GHWATCHER_ENFORCE_PRIVATE: false
+      GHWATCHER_REPO_SKIP_LIST: github-watcher-admin
+      GHWATCHER_ALLOWED_ORG_LIST: ${{ matrix.org }}
+      GHWATCHER_ENABLE_DEPENDABOT: true
+      GHWATCHER_BASEURL: https://api.github.com
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: npm setup
+        run: npm install
+      - name: ${{ matrix.org }} - exec watcher
+        run: npx node github-action.js
+      - name: Summary
+        run: cat ${{ matrix.org }}.md >> $GITHUB_STEP_SUMMARY
