@@ -1,7 +1,6 @@
 
 # Local Application #
 *.env
-package-lock.json
 results/*
 Vagrantfile
 config/config.json
