@@ -1,6 +1,6 @@
 {
   "name": "github-watcher-admin",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Watcher for GitHub Orgs and Repos to verify config preferences are set",
   "main": "index.js",
   "scripts": {
@@ -16,13 +16,10 @@
   "dependencies": {
     "@octokit/auth-app": "^4.0.7",
     "@octokit/core": "^4.1.0",
-    "@octokit/rest": "^19.0.5",
-    "express": "^4.18.2",
-    "lodash": "^4.17.21",
-    "nodemon": "^2.0.20"
+    "@octokit/rest": "^19.0.5"
   },
   "devDependencies": {
-    "cspell": "^6.14.0",
+    "cspell": "^6.14.2",
     "eslint": "^8.27.0",
     "eslint-config-strongloop": "^2.1.0"
   }
