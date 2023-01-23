@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@octokit/auth-app": "^4.0.8",
-    "@octokit/rest": "^19.0.5"
+    "@octokit/rest": "^19.0.7"
   },
   "devDependencies": {
     "cspell": "^6.19.2",
