@@ -18,8 +18,8 @@
     "@octokit/rest": "^19.0.7"
   },
   "devDependencies": {
-    "cspell": "^6.26.3",
-    "eslint": "^8.34.0",
+    "cspell": "^6.27.0",
+    "eslint": "^8.35.0",
     "eslint-config-strongloop": "^2.1.0"
   }
 }
