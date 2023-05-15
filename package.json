@@ -14,7 +14,7 @@
   "author": "Collin McNeese",
   "license": "MIT",
   "dependencies": {
-    "@octokit/auth-app": "^4.0.9",
+    "@octokit/auth-app": "^4.0.10",
     "@octokit/rest": "^19.0.7"
   },
   "devDependencies": {
