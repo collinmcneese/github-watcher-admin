@@ -14,12 +14,12 @@
   "author": "Collin McNeese",
   "license": "MIT",
   "dependencies": {
-    "@octokit/auth-app": "^6.0.3",
+    "@octokit/auth-app": "^6.0.4",
     "@octokit/rest": "^20.0.2"
   },
   "devDependencies": {
-    "cspell": "^8.3.2",
-    "eslint": "^8.56.0",
+    "cspell": "^8.6.0",
+    "eslint": "^8.57.0",
     "eslint-config-strongloop": "^2.1.0"
   }
 }
