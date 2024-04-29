@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "cspell": "^8.7.0",
-    "eslint": "^9.1.0",
+    "eslint": "^9.1.1",
     "eslint-config-strongloop": "^2.1.0"
   }
 }
