@@ -18,7 +18,7 @@
     "@octokit/rest": "^20.1.1"
   },
   "devDependencies": {
-    "cspell": "^8.8.3",
+    "cspell": "^8.8.4",
     "eslint": "^9.4.0",
     "eslint-config-strongloop": "^2.1.0"
   }
