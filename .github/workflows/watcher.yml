@@ -2,10 +2,7 @@
 name: watcher
 
 on:
-  # push:
   workflow_dispatch:
-  # schedule:
-  #   - cron:  '30 5,17 * * *'
 
 jobs:
   watcher_exec:
@@ -13,13 +10,8 @@ jobs:
     strategy:
       matrix:
         org:
-          # - collinmcneese-test
           - mydevsandbox-com
         include:
-          # - org: collinmcneese-test
-          #   GHWATCHER_APP_ID: GHWATCHER_APP_ID_1
-          #   GHWATCHER_APP_PEM: GHWATCHER_APP_PEM_1
-          #   GHWATCHER_APP_INSTALLATION_ID: GHWATCHER_APP_INSTALLATION_ID_1
           - org: mydevsandbox-com
             GHWATCHER_APP_ID: GHWATCHER_APP_ID_2
             GHWATCHER_APP_PEM: GHWATCHER_APP_PEM_2
@@ -36,10 +28,10 @@ jobs:
       GHWATCHER_BASEURL: https://api.github.com
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 16.x
+      - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 20.x
       - name: npm setup
         run: npm install
       - name: ${{ matrix.org }} - exec watcher

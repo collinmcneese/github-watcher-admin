@@ -1,7 +1,7 @@
 // index.js
 // See README.md for requirements and usage instructions.
 
-let msg = `
+const msg = `
 This repository is made to be executed by a GitHub Actions workflow.
 See README.md for more details.
 `;

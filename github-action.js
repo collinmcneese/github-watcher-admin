@@ -6,7 +6,7 @@
 const watcher = require('./watcher');
 const fs = require('fs');
 
-if (process.env.GHWATCHER_ALLOWED_ORG_LIST === (null || undefined)) {
+if (process.env.GHWATCHER_ALLOWED_ORG_LIST === null || process.env.GHWATCHER_ALLOWED_ORG_LIST === undefined) {
   throw new Error('Could not determine ALLOWED_ORG_LIST. Environment variable GHWATCHER_ALLOWED_ORG_LIST must be set for valid target organization name(s).');
 };
 
@@ -51,7 +51,7 @@ if (
       const final_response = await watcher.getProtectionStatus(process.env.GHWATCHER_CHECK_ORG, process.env.GHWATCHER_CHECK_REPO, process.env.GHWATCHER_CHECK_BRANCH);
       console.log(JSON.stringify(final_response, null, 2));
 
-      let outObject = {};
+      const outObject = {};
       outObject[final_response.organization] = {};
       outObject[final_response.organization]['repos'] = [];
 
@@ -86,7 +86,7 @@ if (
 
         // Build header row from keys of first object in array
         for (const header of Object.keys(outObject[final_response.organization]['repos'][0])) {
-          outFileContent += `| ${header.replace(/\_/g, ' ')} `;
+          outFileContent += `| ${header.replace(/_/g, ' ')} `;
         }
         outFileContent += '|\n'; // Complete header row
 
