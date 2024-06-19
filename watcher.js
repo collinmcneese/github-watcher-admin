@@ -169,7 +169,7 @@ async function getCodeScanningAlertStatus(orgName, repoName) {
 
     return data;
   } catch (err) {
-    // console.log('%s/%s: %s', orgName, repoName, (err.response.data.message || err));
+    console.log('%s/%s: %s', orgName, repoName, (err.response.data.message || err));
     return [];
   }
 }
@@ -178,7 +178,7 @@ async function getCodeScanningAlertStatus(orgName, repoName) {
 //   provided Organization(Required) and Repository(Optional)
 //  Returns an Array of Objects
 async function getProtectionStatus(orgName, repoName, branchName) {
-  let reply = {
+  const reply = {
     organization: orgName,
     repos: [],
   };
@@ -206,7 +206,7 @@ async function getProtectionStatus(orgName, repoName, branchName) {
     const code_scanning_analysis = await getCodeScanningAlertStatus(repo.owner.login, repo.name);
 
     // Create an Object which will store data for this repo
-    let repo_object = {
+    const repo_object = {
       name: repo.name,
       dependabot_vulnerability_alerts_enabled: (vuln_alert_status === 204 || false),
       code_scanning_has_data: (code_scanning_analysis.length > 0 || false),
