@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
-    "cspell": "^8.17.5",
+    "cspell": "^8.18.1",
     "eslint": "^9.23.0"
   }
 }
