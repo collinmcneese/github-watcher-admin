@@ -9,7 +9,7 @@
   },
   "engines": {
     "npm": ">=8.0.0",
-    "node": ">=16.0.0"
+    "node": ">=24.0.0"
   },
   "author": "Collin McNeese",
   "license": "MIT",
@@ -20,6 +20,6 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "cspell": "^10.0.1",
-    "eslint": "^10.7.0"
+    "eslint": "^10.8.0"
   }
 }
